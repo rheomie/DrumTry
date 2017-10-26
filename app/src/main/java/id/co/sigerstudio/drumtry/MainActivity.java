@@ -1,5 +1,6 @@
 package id.co.sigerstudio.drumtry;
 
+import android.content.Intent;
 import android.media.AudioAttributes;
 import android.media.AudioManager;
 import android.media.SoundPool;
@@ -15,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     private SoundPool soundPool;
     int streamA, streamB, streamC, streamD, streamE, streamF, streamG, streamH, streamI, streamJ, streamK, streamL;
     private AudioManager audioManager;
+    Intent intent;
 
     // Maximumn sound stream.
     private static final int MAX_STREAMS = 5;
@@ -32,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        intent = getIntent();
 
         // AudioManager audio settings for adjusting the volume
         audioManager = (AudioManager) getSystemService(AUDIO_SERVICE);
@@ -76,18 +79,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        soundA = soundPool.load(this, R.raw.destroy, 1);
-        soundB = soundPool.load(this, R.raw.gun, 1);
-        soundC = soundPool.load(this, R.raw.ride, 1);
-        soundD = soundPool.load(this, R.raw.hihat, 1);
-        soundE = soundPool.load(this, R.raw.kick, 1);
-        soundF = soundPool.load(this, R.raw.crash, 1);
-        soundG = soundPool.load(this, R.raw.snare, 1);
-        soundH = soundPool.load(this, R.raw.snare, 1);
-        soundI = soundPool.load(this, R.raw.snare, 1);
-        soundJ = soundPool.load(this, R.raw.tom1, 1);
-        soundK = soundPool.load(this, R.raw.tom2, 1);
-        soundL = soundPool.load(this, R.raw.tom3, 1);
+        soundA = soundPool.load(this, intent.getIntExtra("soundA",0), 1);
+        soundB = soundPool.load(this, intent.getIntExtra("soundB",0), 1);
+        soundC = soundPool.load(this, intent.getIntExtra("soundC",0), 1);
+        soundD = soundPool.load(this, intent.getIntExtra("soundD",0), 1);
+        soundE = soundPool.load(this, intent.getIntExtra("soundE",0), 1);
+        soundF = soundPool.load(this, intent.getIntExtra("soundF",0), 1);
+        soundG = soundPool.load(this, intent.getIntExtra("soundG",0), 1);
+        soundH = soundPool.load(this, intent.getIntExtra("soundH",0), 1);
+        soundI = soundPool.load(this, intent.getIntExtra("soundI",0), 1);
+        soundJ = soundPool.load(this, intent.getIntExtra("soundJ",0), 1);
+        soundK = soundPool.load(this, intent.getIntExtra("soundK",0), 1);
+        soundL = soundPool.load(this, intent.getIntExtra("soundL",0), 1);
 
         findViewById(R.id.tombolA).setOnTouchListener(new View.OnTouchListener() {
             @Override
