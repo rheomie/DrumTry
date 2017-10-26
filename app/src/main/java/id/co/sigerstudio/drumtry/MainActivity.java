@@ -13,7 +13,7 @@ import android.widget.Switch;
 public class MainActivity extends AppCompatActivity {
 
     private SoundPool soundPool;
-    int streamId;
+    int streamA, streamB, streamC, streamD, streamE, streamF, streamG, streamH, streamI, streamJ, streamK, streamL;
     private AudioManager audioManager;
 
     // Maximumn sound stream.
@@ -76,158 +76,221 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // Load sound file (destroy.wav) into SoundPool.
         soundA = soundPool.load(this, R.raw.destroy, 1);
-
-        // Load sound file (gun.wav) into SoundPool.
-        this.soundB = this.soundPool.load(this, R.raw.gun, 1);
-
-        this.soundC = this.soundPool.load(this, R.raw.ride, 1);
-        this.soundD = this.soundPool.load(this, R.raw.hihat, 1);
-        this.soundE = this.soundPool.load(this, R.raw.kick, 1);
-        this.soundF = this.soundPool.load(this, R.raw.crash, 1);
-        this.soundG = this.soundPool.load(this, R.raw.snare, 1);
-        this.soundH = this.soundPool.load(this, R.raw.snare, 1);
-        this.soundI = this.soundPool.load(this, R.raw.snare, 1);
-        this.soundJ = this.soundPool.load(this, R.raw.tom1, 1);
-        this.soundK = this.soundPool.load(this, R.raw.tom2, 1);
-        this.soundL = this.soundPool.load(this, R.raw.tom3, 1);
+        soundB = soundPool.load(this, R.raw.gun, 1);
+        soundC = soundPool.load(this, R.raw.ride, 1);
+        soundD = soundPool.load(this, R.raw.hihat, 1);
+        soundE = soundPool.load(this, R.raw.kick, 1);
+        soundF = soundPool.load(this, R.raw.crash, 1);
+        soundG = soundPool.load(this, R.raw.snare, 1);
+        soundH = soundPool.load(this, R.raw.snare, 1);
+        soundI = soundPool.load(this, R.raw.snare, 1);
+        soundJ = soundPool.load(this, R.raw.tom1, 1);
+        soundK = soundPool.load(this, R.raw.tom2, 1);
+        soundL = soundPool.load(this, R.raw.tom3, 1);
 
         findViewById(R.id.tombolA).setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                if (event.getAction() == MotionEvent.ACTION_DOWN){
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
                     playASound(soundA);
                 }
-                return false;
+                return true;
             }
         });
-
+        findViewById(R.id.tombolB).setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    playBSound(soundB);
+                }
+                return true;
+            }
+        });
+        findViewById(R.id.tombolC).setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    playCSound();
+                }
+                return true;
+            }
+        });
+        findViewById(R.id.tombolD).setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    playDSound();
+                }
+                return true;
+            }
+        });
+        findViewById(R.id.tombolE).setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    playESound();
+                }
+                return true;
+            }
+        });
+        findViewById(R.id.tombolF).setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    playFSound();
+                }
+                return true;
+            }
+        });
+        findViewById(R.id.tombolG).setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    playGSound();
+                }
+                return true;
+            }
+        });
+        findViewById(R.id.tombolH).setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    playHSound();
+                }
+                return true;
+            }
+        });
+        findViewById(R.id.tombolI).setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    playISound();
+                }
+                return true;
+            }
+        });
+        findViewById(R.id.tombolJ).setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    playJSound();
+                }
+                return true;
+            }
+        });
+        findViewById(R.id.tombolK).setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    playKSound();
+                }
+                return true;
+            }
+        });
+        findViewById(R.id.tombolL).setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    playLSound();
+                }
+                return true;
+            }
+        });
     }
+
 
     public void playASound(int sound) {
-        //if (loaded) {
-            float leftVolumn = volume;
-            float rightVolumn = volume;
-            // Play sound of gunfire. Returns the ID of the new stream.
-                soundPool.stop(streamId);
+        float leftVolumn = volume;
+        float rightVolumn = volume;
+        soundPool.stop(streamA);
+        streamA = soundPool.play(sound, leftVolumn, rightVolumn, 1, 0, 1f);
+    }
 
-                streamId = soundPool.play(sound, leftVolumn, rightVolumn, 1, 0, 1f);
-           // }
-            //streamId = soundPool.play(sound, leftVolumn, rightVolumn, 1, 0, 1f);
+    public void playBSound(int sound) {
+        float leftVolumn = volume;
+        float rightVolumn = volume;
+        soundPool.stop(streamB);
+        streamB = soundPool.play(sound, leftVolumn, rightVolumn, 1, 0, 1f);
+    }
 
+    public void playCSound() {
+        float leftVolumn = volume;
+        float rightVolumn = volume;
+        soundPool.stop(streamC);
+        streamC = soundPool.play(soundC, leftVolumn, rightVolumn, 1, 0, 1f);
+    }
+
+    public void playDSound() {
+        float leftVolumn = volume;
+        float rightVolumn = volume;
+        soundPool.stop(streamD);
+        streamD = soundPool.play(soundD, leftVolumn, rightVolumn, 1, 0, 1f);
 
     }
 
-    public void playBSound(View view) {
-        if (loaded) {
-            float leftVolumn = volume;
-            float rightVolumn = volume;
+    public void playESound() {
+        float leftVolumn = volume;
+        float rightVolumn = volume;
+        soundPool.stop(streamD);
+        streamE = soundPool.play(soundE, leftVolumn, rightVolumn, 1, 0, 1f);
 
-            // Play sound objects destroyed. Returns the ID of the new stream.
-            int streamId = this.soundPool.play(this.soundA, leftVolumn, rightVolumn, 1, 0, 1f);
-            soundPool.stop(streamId);
-            streamId = soundPool.play(soundA, leftVolumn, rightVolumn, 1, 0, 1f);
-        }
     }
 
-    public void playCSound(View view) {
-        if (loaded) {
-            float leftVolumn = volume;
-            float rightVolumn = volume;
+    public void playFSound() {
+        float leftVolumn = volume;
+        float rightVolumn = volume;
+        soundPool.stop(streamD);
+        streamF = soundPool.play(soundF, leftVolumn, rightVolumn, 1, 0, 1f);
 
-            // Play sound objects destroyed. Returns the ID of the new stream.
-            int streamId = this.soundPool.play(this.soundC, leftVolumn, rightVolumn, 1, 0, 1f);
-        }
     }
 
-    public void playDSound(View view) {
-        if (loaded) {
-            float leftVolumn = volume;
-            float rightVolumn = volume;
+    public void playGSound() {
+        float leftVolumn = volume;
+        float rightVolumn = volume;
+        soundPool.stop(streamD);
+        streamG = soundPool.play(soundG, leftVolumn, rightVolumn, 1, 0, 1f);
 
-            // Play sound objects destroyed. Returns the ID of the new stream.
-            int streamId = this.soundPool.play(this.soundD, leftVolumn, rightVolumn, 1, 0, 1f);
-        }
     }
 
-    public void playESound(View view) {
-        if (loaded) {
-            float leftVolumn = volume;
-            float rightVolumn = volume;
+    public void playHSound() {
+        float leftVolumn = volume;
+        float rightVolumn = volume;
+        soundPool.stop(streamD);
+        streamH = soundPool.play(soundH, leftVolumn, rightVolumn, 1, 0, 1f);
 
-            // Play sound objects destroyed. Returns the ID of the new stream.
-            int streamId = this.soundPool.play(this.soundE, leftVolumn, rightVolumn, 1, 0, 1f);
-        }
     }
 
-    public void playFSound(View view) {
-        if (loaded) {
-            float leftVolumn = volume;
-            float rightVolumn = volume;
+    public void playISound() {
+        float leftVolumn = volume;
+        float rightVolumn = volume;
+        soundPool.stop(streamD);
+        streamI = soundPool.play(soundI, leftVolumn, rightVolumn, 1, 0, 1f);
 
-            // Play sound objects destroyed. Returns the ID of the new stream.
-            int streamId = this.soundPool.play(this.soundF, leftVolumn, rightVolumn, 1, 0, 1f);
-        }
     }
 
-    public void playGSound(View view) {
-        if (loaded) {
-            float leftVolumn = volume;
-            float rightVolumn = volume;
+    public void playJSound() {
+        float leftVolumn = volume;
+        float rightVolumn = volume;
+        soundPool.stop(streamD);
+        streamJ = soundPool.play(soundJ, leftVolumn, rightVolumn, 1, 0, 1f);
 
-            // Play sound objects destroyed. Returns the ID of the new stream.
-            int streamId = this.soundPool.play(this.soundG, leftVolumn, rightVolumn, 1, 0, 1f);
-        }
     }
 
-    public void playHSound(View view) {
-        if (loaded) {
-            float leftVolumn = volume;
-            float rightVolumn = volume;
+    public void playKSound() {
+        float leftVolumn = volume;
+        float rightVolumn = volume;
+        soundPool.stop(streamK);
+        streamK = soundPool.play(soundK, leftVolumn, rightVolumn, 1, 0, 1f);
 
-            // Play sound objects destroyed. Returns the ID of the new stream.
-            int streamId = this.soundPool.play(this.soundH, leftVolumn, rightVolumn, 1, 0, 1f);
-        }
     }
 
-    public void playISound(View view) {
-        if (loaded) {
-            float leftVolumn = volume;
-            float rightVolumn = volume;
+    public void playLSound() {
+        float leftVolumn = volume;
+        float rightVolumn = volume;
+        soundPool.stop(streamL);
+        streamL = soundPool.play(soundL, leftVolumn, rightVolumn, 1, 0, 1f);
 
-            // Play sound objects destroyed. Returns the ID of the new stream.
-            int streamId = this.soundPool.play(this.soundI, leftVolumn, rightVolumn, 1, 0, 1f);
-        }
     }
 
-    public void playJSound(View view) {
-        if (loaded) {
-            float leftVolumn = volume;
-            float rightVolumn = volume;
-
-            // Play sound objects destroyed. Returns the ID of the new stream.
-            int streamId = this.soundPool.play(this.soundJ, leftVolumn, rightVolumn, 1, 0, 1f);
-        }
-    }
-
-    public void playKSound(View view) {
-        if (loaded) {
-            float leftVolumn = volume;
-            float rightVolumn = volume;
-
-            // Play sound objects destroyed. Returns the ID of the new stream.
-            int streamId = this.soundPool.play(this.soundK, leftVolumn, rightVolumn, 1, 0, 1f);
-        }
-    }
-
-    public void playLSound(View view) {
-        if (loaded) {
-            float leftVolumn = volume;
-            float rightVolumn = volume;
-
-            // Play sound objects destroyed. Returns the ID of the new stream.
-            int streamId = this.soundPool.play(this.soundL, leftVolumn, rightVolumn, 1, 0, 1f);
-        }
-    }
 }
